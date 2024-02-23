@@ -10,13 +10,13 @@ import (
 	"github.com/gofiber/fiber/v3"
 )
 
-type Config struct {
+type FixedWindowCounterConfig struct {
 	REDIS        *redis.Client
 	MAX_REQUESTS int
 	TIME         time.Duration
 }
 
-func TokenBucket(config *Config, c fiber.Ctx) error {
+func FixedWindowCounter(config *FixedWindowCounterConfig, c fiber.Ctx) error {
 	// Checking if the IP already exists in DB
 	val := config.REDIS.Get(context.Background(), c.IP())
 

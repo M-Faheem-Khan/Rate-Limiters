@@ -13,7 +13,7 @@ func main() {
 	rdb := database.RedisConnection()
 
 	app.Use(func(c fiber.Ctx) error {
-		return middlewares.TokenBucket(&middlewares.Config{
+		return middlewares.FixedWindowCounter(&middlewares.FixedWindowCounterConfig{
 			MAX_REQUESTS: 10,
 			TIME:         time.Second * 10,
 			REDIS:        rdb,

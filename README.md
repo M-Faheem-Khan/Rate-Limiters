@@ -3,8 +3,8 @@
 Fiber Rate Limit middleware. Examples of various Rate Limiting Algorithms
 
 ## Algorithms
-- Token Bucket :white_check_mark:
-- Leaky Bucket :x:
+- Fixed Window Counter :white_check_mark:
+- Token Bucket :x:
 - Sliding Window Log :x:
 
 
