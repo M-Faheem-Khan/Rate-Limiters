@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  rate_limiter:
+    build: .
+    container_name: rate_limiter
+    ports:
+      - '3000:3000'
+    depends_on:
+      - redis_db
+
+  redis_db:
+    image: redis:7.0.14-alpine3.18
+    container_name: redis_db
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./data/redis:/data # persist data 
+
+
+# EOF
